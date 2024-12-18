@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:36:47 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 00:43:09 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/18 01:12:44 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	hitPoints = 100;
-	energyPoints = 50;
+	energyPoints = 100;
 	attackDamage = 30;
 	std::cout << "FragTrap Default Constructor called" << std::endl;
 }
@@ -23,7 +23,7 @@ FragTrap::FragTrap() : ClapTrap()
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 {
 	hitPoints = 100;
-	energyPoints = 50;
+	energyPoints = 100;
 	attackDamage = 30;
 	std::cout << "FragTrap String Constructor called" << std::endl;
 }
