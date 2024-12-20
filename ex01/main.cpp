@@ -1,18 +1,24 @@
 #include "ScavTrap.hpp"
 
+void	myTest(void)
+{
+	ScavTrap	st;
+
+	st.guardGate();
+	st.guardGate();
+	st.takeDamage(20);
+	for (int i = 0; i < 100 && st.getHitPoints() > 0 && st.getEnergyPoints() > 0; ++i)
+	{
+		st.attack("foo");
+		st.beRepaired(i);
+	}
+	st.guardGate();
+	st.attack("foo");
+	st.beRepaired(10);
+}
+
 int	main()
 {
-	{
-		ScavTrap	st;
-
-		for (int i = 0; i < 100 && st.getHitPoints() > 0 && st.getEnergyPoints() > 0; ++i)
-		{
-			st.attack("foo");
-			st.guardGate();
-			st.beRepaired(10);
-		}
-		st.attack("foo");
-		st.beRepaired(10);
-	}
+	myTest();
 	return (0);
 }
