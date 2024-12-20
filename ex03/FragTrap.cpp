@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:36:47 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 16:56:30 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 01:38:12 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	FragTrap::highFivesGuys(void)
 	}
 	if (energyPoints == 0)
 	{
-		std::cout << "FragTrap " << name << " can't be repaired because is exhausted" << std::endl;
+		std::cout << "FragTrap " << name << " can't request high fives because is exhausted" << std::endl;
 		return;
 	}
 	std::cout << "FragTrap " << name << " is requesting a highFivesGuys" << std::endl;
