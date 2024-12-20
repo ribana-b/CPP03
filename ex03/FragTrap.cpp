@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:36:47 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/20 02:07:42 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 02:42:56 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,5 @@ void	FragTrap::highFivesGuys(void)
 		std::cout << "FragTrap " << name << " can't request high fives because is exhausted" << std::endl;
 		return;
 	}
-	std::cout << "FragTrap " << name << " is requesting a highFivesGuys" << std::endl;
+	std::cout << "FragTrap " << name << " is requesting a high fives" << std::endl;
 }
