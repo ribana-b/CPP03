@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:36:47 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/20 01:38:12 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 02:07:42 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ FragTrap::~FragTrap()
 
 void	FragTrap::attack(const std::string &target)
 {
-	if (hitPoints == 0)
+	if (!hitPoints)
 	{
 		std::cout << "FragTrap " << name << " can't attack because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "FragTrap " << name << " can't attack because is exhausted" << std::endl;
 		return;
@@ -72,7 +72,7 @@ void	FragTrap::attack(const std::string &target)
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "FragTrap " << name << " can't take damage because is dead" << std::endl;
 		return;
@@ -81,23 +81,23 @@ void	FragTrap::takeDamage(unsigned int amount)
 	hitPoints -= amount;
 	if (hitPoints < 0)
 		hitPoints = 0;
-	if (hitPoints == 0)
+	if (!hitPoints)
 		std::cout << "FragTrap " << name << " has fainted" << std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "FragTrap " << name << " can't be repaired because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "FragTrap " << name << " can't be repaired because is exhausted" << std::endl;
 		return;
 	}
-	if (hitPoints == 10)
+	if (hitPoints == 100)
 	{
 		std::cout << "FragTrap " << name << " can't be repaired because has max hitPoints" << std::endl;
 		return;
@@ -111,12 +111,12 @@ void	FragTrap::beRepaired(unsigned int amount)
 
 void	FragTrap::highFivesGuys(void)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "FragTrap " << name << " can't be repaired because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "FragTrap " << name << " can't request high fives because is exhausted" << std::endl;
 		return;

@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 22:26:32 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/17 23:59:27 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 02:03:41 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ int	ClapTrap::getAttackDamage(void) const
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (hitPoints == 0)
+	if (!hitPoints)
 	{
 		std::cout << "ClapTrap " << name << " can't attack because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "ClapTrap " << name << " can't attack because is exhausted" << std::endl;
 		return;
@@ -96,7 +96,7 @@ void	ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "ClapTrap " << name << " can't take damage because is dead" << std::endl;
 		return;
@@ -105,18 +105,18 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	hitPoints -= amount;
 	if (hitPoints < 0)
 		hitPoints = 0;
-	if (hitPoints == 0)
+	if (!hitPoints)
 		std::cout << "ClapTrap " << name << " has fainted" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "ClapTrap " << name << " can't be repaired because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "ClapTrap " << name << " can't be repaired because is exhausted" << std::endl;
 		return;

@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:42:28 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 16:55:24 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 02:34:56 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ void	ScavTrap::setIsGuardMode(bool guardMode)
 
 void	ScavTrap::attack(const std::string &target)
 {
-	if (hitPoints == 0)
+	if (!hitPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't attack because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't attack because is exhausted" << std::endl;
 		return;
@@ -86,7 +86,7 @@ void	ScavTrap::attack(const std::string &target)
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't take damage because is dead" << std::endl;
 		return;
@@ -95,23 +95,23 @@ void	ScavTrap::takeDamage(unsigned int amount)
 	hitPoints -= amount;
 	if (hitPoints < 0)
 		hitPoints = 0;
-	if (hitPoints == 0)
+	if (!hitPoints)
 		std::cout << "ScavTrap " << name << " has fainted" << std::endl;
 }
 
 void	ScavTrap::beRepaired(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't be repaired because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't be repaired because is exhausted" << std::endl;
 		return;
 	}
-	if (hitPoints == 10)
+	if (hitPoints == 100)
 	{
 		std::cout << "ScavTrap " << name << " can't be repaired because has max hitPoints" << std::endl;
 		return;
@@ -125,12 +125,12 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::guardGate()
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't guard because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "ScavTrap " << name << " can't guard because is exhausted" << std::endl;
 		return;

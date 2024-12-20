@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:57:01 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 03:09:35 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/19 18:25:31 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 /* |                             Class Section                              | */
 /* @------------------------------------------------------------------------@ */
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
 		DiamondTrap();

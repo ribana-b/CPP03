@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 01:03:03 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 15:43:20 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 02:33:06 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 DiamondTrap::DiamondTrap() :
 	ClapTrap(),
-	ScavTrap(),
 	FragTrap(),
+	ScavTrap(),
 	name("Default")
 {
 	ClapTrap::name += "_clap_name";
@@ -24,14 +24,17 @@ DiamondTrap::DiamondTrap() :
 
 DiamondTrap::DiamondTrap(const std::string &name) :
 	ClapTrap(name + "_clap_name"),
-	ScavTrap(name),
 	FragTrap(name),
+	ScavTrap(name),
 	name(name)
 {
 	std::cout << "DiamondTrap String Constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &that) : ClapTrap(that.getName())
+DiamondTrap::DiamondTrap(const DiamondTrap &that) :
+	ClapTrap(that.getName() + "_clap_name"),
+	FragTrap(that.getName()),
+	ScavTrap(that.getName())
 {
 	hitPoints = that.getHitPoints();
 	energyPoints = that.getEnergyPoints();
@@ -69,12 +72,12 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::attack(const std::string &target)
 {
-	if (hitPoints == 0)
+	if (!hitPoints)
 	{
 		std::cout << "DiamondTrap " << name << " can't attack because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "DiamondTrap " << name << " can't attack because is exhausted" << std::endl;
 		return;
@@ -85,7 +88,7 @@ void	DiamondTrap::attack(const std::string &target)
 
 void	DiamondTrap::takeDamage(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "DiamondTrap " << name << " can't take damage because is dead" << std::endl;
 		return;
@@ -94,23 +97,23 @@ void	DiamondTrap::takeDamage(unsigned int amount)
 	hitPoints -= amount;
 	if (hitPoints < 0)
 		hitPoints = 0;
-	if (hitPoints == 0)
+	if (!hitPoints)
 		std::cout << "DiamondTrap " << name << " has fainted" << std::endl;
 }
 
 void	DiamondTrap::beRepaired(unsigned int amount)
 {
-	if (hitPoints < 0)
+	if (!hitPoints)
 	{
 		std::cout << "DiamondTrap " << name << " can't be repaired because is dead" << std::endl;
 		return;
 	}
-	if (energyPoints == 0)
+	if (!energyPoints)
 	{
 		std::cout << "DiamondTrap " << name << " can't be repaired because is exhausted" << std::endl;
 		return;
 	}
-	if (hitPoints == 10)
+	if (hitPoints == 100)
 	{
 		std::cout << "DiamondTrap " << name << " can't be repaired because has max hitPoints" << std::endl;
 		return;
