@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:40:17 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/18 02:14:35 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 14:04:57 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class ScavTrap : virtual public ClapTrap
 
 		ScavTrap	&operator=(const ScavTrap &that);
 
-	private:
+	protected:
 		bool	isGuardMode;
 };
 

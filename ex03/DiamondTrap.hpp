@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 00:57:01 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/19 18:25:31 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 14:02:23 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
 		DiamondTrap	&operator=(const DiamondTrap &that);
 
+		void	guardGate();
+		void	highFivesGuys(void);
 		void	whoAmI();
 
 	private:

@@ -11,6 +11,7 @@ void	myTest(void)
 
 	dt.highFivesGuys();
 	dt.guardGate();
+	dt.guardGate();
 	dt.whoAmI();
 }
 
@@ -24,6 +25,7 @@ void	myTest2(void)
 	std::cout << "Diamond Energy Points: " << dt.getEnergyPoints() << std::endl;
 
 	dt.highFivesGuys();
+	dt.guardGate();
 	dt.guardGate();
 	dt.whoAmI();
 }
@@ -40,6 +42,7 @@ void	myTest3(void)
 	std::cout << "Diamond Energy Points: " << dt.getEnergyPoints() << std::endl;
 
 	dt.highFivesGuys();
+	dt.guardGate();
 	dt.guardGate();
 	dt.whoAmI();
 }

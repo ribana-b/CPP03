@@ -6,36 +6,38 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 01:03:03 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/20 02:33:06 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 14:06:48 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() :
-	ClapTrap(),
 	FragTrap(),
 	ScavTrap(),
 	name("Default")
 {
+	ScavTrap::isGuardMode = false;
 	ClapTrap::name += "_clap_name";
 	std::cout << "DiamondTrap Default Constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string &name) :
-	ClapTrap(name + "_clap_name"),
 	FragTrap(name),
 	ScavTrap(name),
 	name(name)
 {
+	ScavTrap::isGuardMode = false;
+	ClapTrap::name = name + "_clap_name";
 	std::cout << "DiamondTrap String Constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &that) :
-	ClapTrap(that.getName() + "_clap_name"),
 	FragTrap(that.getName()),
 	ScavTrap(that.getName())
 {
+	ScavTrap::isGuardMode = that.getIsGuardMode();
+	ClapTrap::name = that.getName() + "_clap_name";
 	hitPoints = that.getHitPoints();
 	energyPoints = that.getEnergyPoints();
 	attackDamage = that.getAttackDamage();
@@ -46,6 +48,8 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &that)
 {
 	if (this != &that)
 	{
+		ScavTrap::isGuardMode = that.getIsGuardMode();
+		ClapTrap::name = that.getName() + "_clap_name";
 		name = that.getName();
 		hitPoints = that.getHitPoints();
 		energyPoints = that.getEnergyPoints();
@@ -123,6 +127,42 @@ void	DiamondTrap::beRepaired(unsigned int amount)
 	hitPoints += amount;
 	if (hitPoints > 100)
 		hitPoints = 100;
+}
+
+void	DiamondTrap::highFivesGuys(void)
+{
+	if (!hitPoints)
+	{
+		std::cout << "DiamondTrap " << name << " can't be repaired because is dead" << std::endl;
+		return;
+	}
+	if (!energyPoints)
+	{
+		std::cout << "DiamondTrap " << name << " can't request high fives because is exhausted" << std::endl;
+		return;
+	}
+	std::cout << "DiamondTrap " << name << " is requesting a high fives" << std::endl;
+}
+
+void	DiamondTrap::guardGate()
+{
+	if (!hitPoints)
+	{
+		std::cout << "DiamondTrap " << name << " can't guard because is dead" << std::endl;
+		return;
+	}
+	if (!energyPoints)
+	{
+		std::cout << "DiamondTrap " << name << " can't guard because is exhausted" << std::endl;
+		return;
+	}
+	if (ScavTrap::isGuardMode)
+	{
+		std::cout << "DiamondTrap " << name << " is already in Gatekeeper mode" << std::endl;
+		return;
+	}
+	std::cout << "DiamondTrap " << name << " is now in Gatekeeper mode" << std::endl;
+	ScavTrap::isGuardMode = true;
 }
 
 void	DiamondTrap::whoAmI()
