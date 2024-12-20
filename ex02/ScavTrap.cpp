@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:42:28 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/12/20 02:04:32 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/12/20 14:07:37 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	ScavTrap::guardGate()
 	}
 	if (isGuardMode)
 	{
-		std::cout << "ScavTrap is already in Gatekeeper mode" << std::endl;
+		std::cout << "ScavTrap " << name << " is already in Gatekeeper mode" << std::endl;
 		return;
 	}
 	std::cout << "ScavTrap " << name << " is now in Gatekeeper mode" << std::endl;
