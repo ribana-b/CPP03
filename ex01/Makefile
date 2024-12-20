@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 15:47:56 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/12/18 15:45:05 by ribana-b         ###   ########.com       #
+#    Updated: 2024/12/20 05:25:22 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 
-CXX := clang++
+CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 ifdef WITH_DEBUG
